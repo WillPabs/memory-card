@@ -10,8 +10,14 @@ const scoreboardFunctions = {
     addScore(num) {
         this.currentScore += num;
     },
-    setNewHighScore() {
-        if (this.currentScore > this.typeHighScore) this.typeHighScore = this.currentScore;
-        if (this.currentScore > this.highScore) this.highScore = this.currentScore;
+    checkNewHighScore() {
+        this.setNewHighestScore(this.score);
+        this.setNewTypeHighScore(this.score);
+    },
+    setNewHighestScore(score) {
+        if (score > this.highScore) this.highScore = score;
+    },
+    setNewTypeHighScore(score) {
+        if (score > this.typeHighScore) this.typeHighScore = score;
     }
 }
