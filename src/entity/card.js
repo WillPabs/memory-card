@@ -1,4 +1,4 @@
-export const card = (type, image, label) => {
+export const Card = (type, image, label) => {
     let obj = Object.create();
     obj.type = type;
     obj.image = image;

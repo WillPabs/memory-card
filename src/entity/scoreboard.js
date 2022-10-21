@@ -1,7 +1,8 @@
-export const scoreboard = (type) => {
+export const Scoreboard = () => {
     let obj = Object.create(scoreboardFunctions);
     obj.currentScore = 0;
-    obj.typeHighScore = type.highScore;
+    obj.type = undefined;
+    obj.typeHighScore = undefined;
     obj.highScore = 0;
     return obj;
 }
