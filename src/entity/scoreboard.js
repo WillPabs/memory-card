@@ -1,4 +1,4 @@
-export const Scoreboard = () => {
+const Scoreboard = () => {
     let obj = Object.create(scoreboardFunctions);
     obj.currentScore = 0;
     obj.type = undefined;
@@ -22,3 +22,5 @@ const scoreboardFunctions = {
         if (score > this.typeHighScore) this.typeHighScore = score;
     }
 }
+
+export default Scoreboard;
