@@ -13,6 +13,8 @@
     - a request will be sent to the backend api to retrieve a list of cards for the specified type
 - select(card)
     - if card is in selectedCards return false else true
+- shuffle()
+    - takes cards and returns in a random order
 
 #### Card
 - type
@@ -32,10 +34,14 @@
 ### API
 - each endpoint will send a get request to the corresponding url to retrieve a list of data limited to 15. The required data will be converted to a list of Card objects. Those objects will be passed to the Game object.
 
-#### Cars Endpoint
+#### Pokemon Endpoint
+- https://pokeapi.co/api/v2/pokemon?limit=20&offset={offset}
+    - offset will be random number from 0 - 1134
 
-#### Shoes Endpoint
+#### Animals Endpoint
+- https://zoo-animal-api.herokuapp.com/animals/rand/10
 
-#### Dogs Endpoint
+#### Disney Characters Endpoint
+- https://api.disneyapi.dev/characters
 
 - The user will be prompted to select the type of cards they want to play the game with (e.g. cars, celebs, shoes, etc). Based upon the selection, a request will be sent to a certain api that returns a list of images and descriptions about each item in the list of that type. That selection will be displayed in a grid format.
