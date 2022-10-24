@@ -1,7 +1,7 @@
 import Card from '../src/entity/card';
 
 test('initialized with all parameters', () => {
-    const card = Card('car', 'image', 'ferrari');
+    let card = Card('car', 'image', 'ferrari');
 
     const actual = card;
     const expected = 
@@ -11,5 +11,5 @@ test('initialized with all parameters', () => {
             label: 'ferrari'
         };
 
-    expect(actual).toBe(expected);
+    expect(actual).toEqual(expected);
 });
