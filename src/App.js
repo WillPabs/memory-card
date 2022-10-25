@@ -1,22 +1,25 @@
+import { useState } from 'react';
 import { getPokemonData } from './api/api';
 
-const data = getPokemonData();
-console.log(data)
-const poke = 
-  <div>
-    {data.map((element) => {
-      return (
-        <div>
-          {element}
-        </div>
-      )
-    })}
-  </div>
-
 function App() {
+  const [data, setData] = useState([]);
+
+  const getData =  async () => {
+      const pokemonData = await getPokemonData();
+      setData(pokemonData);
+  }
+
   return (
     <div className="App">
-      {poke}
+      <button onClick={getData}>Get Pokemon Data</button>
+      {data.map(card => {
+        return(
+          <div key={card.name}>
+            {card.name}
+            <img src={card.imgUrl} alt={card.name}/>
+          </div>
+        )
+      })}
     </div>
   );
 }

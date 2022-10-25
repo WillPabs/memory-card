@@ -6,21 +6,18 @@ const getPokemonData = async () => {
     try {
         const response = await axios.get(url);
         const data = await response.data.results;
-        return await data;
+        let pokemen = [];
+        for await (let obj of data) {
+            const objResponse = await axios.get(obj.url);
+            const name = objResponse.data.name;
+            const imgUrl = objResponse.data.sprites.front_default;
+            const pokemon = { name, imgUrl }
+            pokemen.push(pokemon);
+        }
+        return await pokemen;
     } catch (error) {
         console.log(error);
     }
-
-    // try {
-    //     axios.get(url)
-    //         .then(response => response.data.results)
-    //         .then(data => {
-    //             // console.log(data);
-    //             return data;
-    //         });
-    // } catch (error) {
-    //     console.log(error);
-    // }
 }
 
 const getAnimalsData = async () => {
