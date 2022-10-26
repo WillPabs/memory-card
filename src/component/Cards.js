@@ -1,7 +1,6 @@
 import Card from "./Card";
 
-const Cards = (props) => {
-    const { cards } = props;
+const Cards = ({ cards }) => {
     return (
         <ul>
             {cards.map(card => {

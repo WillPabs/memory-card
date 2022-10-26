@@ -1,6 +1,4 @@
-const Card = (props) => {
-    const { name, imgUrl } = props;
-
+const Card = ({ name, imgUrl }) => {
     return (
         <figure id={name}>
             <img src={imgUrl} alt={name}></img>
