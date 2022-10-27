@@ -10,7 +10,12 @@ const getPokemonData = async () => {
         for await (let obj of data) {
             const objResponse = await axios.get(obj.url);
             const name = objResponse.data.name;
-            const imgUrl = objResponse.data.sprites.front_default;
+            let imgUrl;
+            if (objResponse.data.sprites.front_default) {
+                imgUrl = objResponse.data.sprites.front_default;
+            } else {
+                imgUrl = objResponse.data.sprites.other['official-artwork'].front_default;
+            }
             const pokemon = { name, imgUrl }
             pokemen.push(pokemon);
         }
