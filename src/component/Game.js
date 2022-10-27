@@ -22,19 +22,33 @@ const Game = () => {
         setCards(newCards);
     };
 
-    const select = () => {
-
+    const select = (e) => {
+        console.log(e.target.parentNode.id);
+        const name = e.target.parentNode.id;
+        if (selectedCards.includes(name)) {
+            setScore(0)
+            setSelectedCards([])
+        } else {
+            setScore(score + 1);
+            setSelectedCards([...selectedCards, name]);
+        }
+        shuffle();
     };
 
     const shuffle = () => {
-
+        for (let i = cards.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = cards[i];
+            cards[i] = cards[j];
+            cards[j] = temp;
+        }
     }
 
     return (
         <div>
             <Dropdown types={types} onSelect={selectType}></Dropdown>
             <Scoreboard score={score} highScore={highScore} type={selectedType}></Scoreboard>
-            <Cards cards={cards}></Cards>
+            <Cards cards={cards} onSelect={select}></Cards>
         </div>
     )
 }
