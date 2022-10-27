@@ -1,4 +1,5 @@
 import axios from "axios";
+import Card from "../entity/card";
 
 const getPokemonData = async () => {
     let offset = Math.floor(Math.random() * 1134);
@@ -16,7 +17,7 @@ const getPokemonData = async () => {
             } else {
                 imgUrl = objResponse.data.sprites.other['official-artwork'].front_default;
             }
-            const pokemon = { name, imgUrl }
+            const pokemon = Card(name, 'pokemon', imgUrl, name);
             pokemen.push(pokemon);
         }
         return await pokemen;
