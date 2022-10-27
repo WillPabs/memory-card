@@ -8,6 +8,7 @@ const Game = () => {
     const [cards, setCards] = useState([]);
     const [selectedCards, setSelectedCards] = useState([]);
     const [score, setScore] = useState(0);
+    const [typeHighScore, setTypeHighScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [types, setTypes] = useState(['pokemon', 'animals', 'disney']);
     const [selectedType, setSelectedType] = useState('');
@@ -23,9 +24,10 @@ const Game = () => {
     };
 
     const select = (e) => {
-        console.log(e.target.parentNode.id);
         const name = e.target.parentNode.id;
         if (selectedCards.includes(name)) {
+            if (score > highScore) setHighScore(score);
+            if (score > typeHighScore) setTypeHighScore(score);
             setScore(0)
             setSelectedCards([])
         } else {
@@ -47,7 +49,7 @@ const Game = () => {
     return (
         <div>
             <Dropdown types={types} onSelect={selectType}></Dropdown>
-            <Scoreboard score={score} highScore={highScore} type={selectedType}></Scoreboard>
+            <Scoreboard score={score} typeHighScore={typeHighScore} highScore={highScore} type={selectedType}></Scoreboard>
             <Cards cards={cards} onSelect={select}></Cards>
         </div>
     )
