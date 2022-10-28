@@ -20,14 +20,26 @@ const getPokemonData = async () => {
             const pokemon = Card(name, 'pokemon', imgUrl, name);
             pokemen.push(pokemon);
         }
-        return await pokemen;
+        return pokemen;
     } catch (error) {
         console.log(error);
     }
 }
 
 const getAnimalsData = async () => {
-
+    const url = 'https://zoo-animal-api.herokuapp.com/animals/rand/10';
+    try {
+        const response = await axios.get(url);
+        const data = await response.data;
+        let animals = [];
+        for (let obj of data) {
+            const animal = Card(obj.name, 'animals', obj.image_link, obj.name);
+            animals.push(animal);
+        }
+        return animals;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const getDisneyCharactersData = async () => {
