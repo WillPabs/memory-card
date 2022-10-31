@@ -49,7 +49,7 @@ const Game = () => {
     }
 
     return (
-        <div className="flex flex-col px-5 self-center justify-items-center">
+        <div className="flex flex-col px-20 self-center justify-items-center">
             <Dropdown types={types} onSelect={selectType}></Dropdown>
             <Scoreboard score={score} typeHighScore={typeHighScore} highScore={highScore} type={selectedType}></Scoreboard>
             <Cards cards={cards} onSelect={select}></Cards>
