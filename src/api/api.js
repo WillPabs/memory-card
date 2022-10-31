@@ -43,7 +43,22 @@ const getAnimalsData = async () => {
 }
 
 const getDisneyCharactersData = async () => {
-
+    const page = Math.floor(Math.random() * 147);
+    const indexStart = Math.floor(Math.random() * 30);
+    const url = `https://api.disneyapi.dev/characters?page=${page}`;
+    try {
+        const response = await axios.get(url);
+        const data = await response.data.data.splice(indexStart, 20);
+        let characters = [];
+        console.log(data);
+        for (let obj of data) {
+            const character = Card(obj._id, 'disney', obj.imageUrl, obj.name);
+            characters.push(character);
+        }
+        return characters;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export {

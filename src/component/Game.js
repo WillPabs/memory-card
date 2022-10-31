@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { getAnimalsData, getPokemonData } from "../api/api";
+import { getAnimalsData, getDisneyCharactersData, getPokemonData } from "../api/api";
 import Cards from "./Cards";
 import Dropdown from "./Dropdown";
 import Scoreboard from "./Scoreboard";
@@ -20,6 +20,8 @@ const Game = () => {
             newCards = await getPokemonData();
         } else if (type === 'animals') {
             newCards = await getAnimalsData();
+        } else if (type === 'disney') {
+            newCards = await getDisneyCharactersData();
         }
         setSelectedType(type);
         setCards(newCards);
