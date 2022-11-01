@@ -23,6 +23,7 @@ const Game = () => {
         } else if (type === 'disney') {
             newCards = await getDisneyCharactersData();
         }
+        setScore(0);
         setSelectedType(type);
         setCards(newCards);
     };
