@@ -2,7 +2,7 @@ import Card from "./Card";
 
 const Cards = ({ cards, onSelect }) => {
     return (
-        <ul className="flex flex-col items-center">
+        <ul className="flex flex-wrap items-center">
             {cards.map(card => {
                 return (
                     <Card 
