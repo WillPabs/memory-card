@@ -2,7 +2,7 @@ import Card from "./Card";
 
 const Cards = ({ cards, onSelect }) => {
     return (
-        <ul className="flex flex-wrap items-center">
+        <ul className="grid grid-flow-row grid-cols-3">
             {cards.map(card => {
                 return (
                     <Card 
