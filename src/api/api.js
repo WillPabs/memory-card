@@ -50,7 +50,6 @@ const getDisneyCharactersData = async () => {
         const response = await axios.get(url);
         const data = await response.data.data.splice(indexStart, 20);
         let characters = [];
-        console.log(data);
         for (let obj of data) {
             const character = Card(obj._id, 'disney', obj.imageUrl, obj.name);
             characters.push(character);
