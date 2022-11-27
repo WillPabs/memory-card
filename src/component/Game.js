@@ -58,8 +58,18 @@ const Game = () => {
 
     return (
         <div className="flex flex-col px-20 self-center justify-items-center">
-            <Dropdown types={types} onSelect={selectType}></Dropdown>
-            <Scoreboard score={score} typeHighScore={selectedType.highScore} highScore={highScore} type={selectedType.name}></Scoreboard>
+            <div className="flex justify-between">
+                <Dropdown
+                    types={types} 
+                    onSelect={selectType}
+                />
+                <Scoreboard 
+                    score={score} 
+                    typeHighScore={selectedType.highScore} 
+                    highScore={highScore} 
+                    type={selectedType.name}
+                />
+            </div>
             <Cards cards={cards} onSelect={select}></Cards>
         </div>
     )

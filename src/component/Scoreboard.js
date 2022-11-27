@@ -4,7 +4,7 @@ const Scoreboard = ({ score, typeHighScore, highScore, type }) => {
         :
         <div></div>;
     return (
-        <div>
+        <div className="flex flex-col text-right">
             <div id="score">Score: {score}</div>
             {typeHSDiv}
             <div id="high-score">High Score: {highScore}</div>
