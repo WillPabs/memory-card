@@ -28,7 +28,7 @@ const Dropdown = ({ types, onSelect }) => {
             <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 {types.map(type => {
                     return (
-                        <div key={type} className="py-1">
+                        <div key={type.name} className="py-1">
                             <Menu.Item>
                                 {({ active }) => (
                                     <a
@@ -39,7 +39,7 @@ const Dropdown = ({ types, onSelect }) => {
                                         )}
                                         onClick={onSelect}                                        
                                     >
-                                        {type}
+                                        {type.name}
                                     </a>
                                 )}
                             </Menu.Item>    
